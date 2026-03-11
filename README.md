@@ -9,16 +9,10 @@ A clean, local web UI for the CS-2206 assembler and emulator. It runs entirely o
 - Load sample `.asm` files or open any file from disk
 
 ## Project Structure
-- `web/server.py` — local web server (Python stdlib)
-- `web/public/` — frontend assets
-- `*.asm` — sample programs
-- `asm.exe` / `emu.exe` — assembler & emulator binaries
-
-## Run Locally
-```powershell
-python C:\Users\lizak\OneDrive\??\semester-four\CS-2206-MiniProject\web\server.py
-```
-Then open: http://127.0.0.1:8000
+- `web/server.py` â€” local web server (Python stdlib)
+- `web/public/` â€” frontend assets
+- `*.asm` â€” sample programs
+- `asm.exe` / `emu.exe` â€” assembler & emulator binaries
 
 ## Add More Samples
 - Put new `.asm` files in the project root and refresh the page, or
