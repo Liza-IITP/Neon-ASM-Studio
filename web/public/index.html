@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Neon ASM Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-badge">ASM</div>
+        <div>
+          <h1>Neon ASM Studio</h1>
+          <p>Assembler + Emulator, now with a full web UI</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="assembleBtn" class="btn primary">Assemble</button>
+        <button id="runBtn" class="btn glow" disabled>Run Emulator</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel editor">
+        <div class="panel-header">
+          <div class="panel-title">Source Editor</div>
+          <div class="panel-tools">
+            <label class="field">
+              <span>Sample</span>
+              <select id="sampleSelect"></select>
+            </label>
+            <label class="field file-field">
+              <span>Open .asm</span>
+              <input id="fileInput" type="file" accept=".asm" />
+            </label>
+            <label class="field">
+              <span>Filename</span>
+              <input id="filename" type="text" value="program" />
+            </label>
+            <label class="field">
+              <span>Mode</span>
+              <select id="modeSelect">
+                <option value="trace">Trace</option>
+                <option value="before">Memory Before</option>
+                <option value="after">Memory After</option>
+                <option value="wipe">Wipe</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <textarea id="source" spellcheck="false"></textarea>
+        <div class="status" id="statusLine">Ready.</div>
+      </section>
+
+      <section class="panel outputs">
+        <div class="output-card">
+          <h2>Assembler Output</h2>
+          <pre id="asmOut" class="console"></pre>
+        </div>
+        <div class="output-card">
+          <h2>Listing (.lst)</h2>
+          <pre id="listingOut" class="console"></pre>
+        </div>
+        <div class="output-card">
+          <h2>Object Words (.o)</h2>
+          <pre id="objectOut" class="console"></pre>
+        </div>
+        <div class="output-card">
+          <h2>Emulator Output</h2>
+          <pre id="emuOut" class="console"></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      Built on your CS-2206 assembler + emulator. Runs locally, no uploads.
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

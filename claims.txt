@@ -1,0 +1,26 @@
+Claims for CS2206 MiniProject - Liza Kumari
+2402CS12
+
+General:
+- Source files include name, user ID, and authorship declaration.
+- Compiles without error or warnings using the provided Makefile (g++ used instead of gcc to support C++ implementation).
+- Sensible variable naming and explanatory comments included.
+
+Assembler (60%):
+- Reads into an internal form on the first pass (Stage 2 & Stage 3 of assembler.cpp).
+- Diagnoses label errors (duplicate, missing, invalid names).
+- Produces an advanced listing file showing bytes, mnemonics, and original lines.
+- Has a table of instruction names and expected operands.
+- Assembles the test programs correctly.
+- Implements the SET pseudo-instruction.
+
+Emulator (25%):
+- Loads the binary object file correctly.
+- Produces a memory dump (-before and -after flags).
+- Executes the test programs.
+- Detects errant programs (infinite loops, out-of-bounds memory access).
+
+Test Cases (15%):
+- Includes a working Bubble Sort program.
+- Includes 3 distinct algorithms as test cases (Fibonacci, Binary Search, Factorial) with explanations in comments.
+- Includes an error-testing file (test04_errors.asm) demonstrating the assembler's robust error diagnostics.
