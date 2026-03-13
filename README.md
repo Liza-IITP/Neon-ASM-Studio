@@ -15,5 +15,4 @@
 ## Add More Samples
 - Put new `.asm` files in the project root and refresh the page, or
 - Use the **Open .asm** button to load from anywhere on disk
-## Preview
-![alt-image](preview.png)
+
