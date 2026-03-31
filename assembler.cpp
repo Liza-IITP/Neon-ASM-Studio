@@ -10,7 +10,7 @@
 using namespace std;
 
 // =========================================================================
-// HELPERS & VALIDATION (kept simple on purpose)
+// HELPERS & VALIDATION 
 // =========================================================================
 
 static string getFileBaseName(const string& path) {
