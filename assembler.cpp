@@ -261,12 +261,16 @@ static void pass1BuildSymbols() {
                 bool validNumber = isDecimal(op) || isOctal(op) || isHex(op);
                 if (!isValidLabel(op) && !validNumber) {
                     errors.push_back({lineNum, "Invalid operand"});
-                }
-
-                if (isValidLabel(line.operand)) {
-                    labelUsage[line.operand].push_back(lineNum);
-                    if (!symbolTable.count(line.operand)) {
-                        symbolTable[line.operand] = {-1, lineNum};
+                } else if (validNumber) {
+                    // --- NEW: Bounds and Crash Check ---
+                    try {
+                        int val = parseNumber(op);
+                        // Check 24-bit signed limits (-8388608 to 8388607)
+                        if (val > 8388607 || val < -8388608) {
+                            errors.push_back({lineNum, "Operand out of range (24-bit limit)"});
+                        }
+                    } catch (const std::out_of_range& e) {
+                        errors.push_back({lineNum, "Operand massively out of range"});
                     }
                 }
             }
