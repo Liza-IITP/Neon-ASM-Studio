@@ -389,9 +389,9 @@ static void writeOutputs(const string& fileBaseName, const string& sourcePath) {
         lstFile << row.address << " " << row.machineCode << " " << row.originalLine << "\n";
     }
     lstFile << "Symbol Table : " <<endl ; 
-    lstFile << "PC LINE : ADDRESS" << endl ; 
+    lstFile << "LINE : ADDRESS" << endl ; 
     for(auto & c: symbolTable){
-        lstFile << decimalToHex(c.second.second)<< " " << c.first << "\n"; 
+        lstFile << c.second.second<< " " << c.first << "\n"; 
 
         }
 
