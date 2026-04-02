@@ -290,6 +290,7 @@ static void pass1BuildSymbols() {
             }
             pc++;
         }
+        
     }
 
     // after pass 1, check for undefined or unused labels
@@ -360,7 +361,7 @@ static void pass2GenerateOutput() {
             row.machineCode = operand24 + opcode;
             machineCode.push_back(row.machineCode);
         }
-
+        
         listing.push_back(row);
     }
 }
@@ -382,11 +383,18 @@ static void writeOutputs(const string& fileBaseName, const string& sourcePath) {
     if (errors.empty()) {
         logFile << "Assembly completed successfully with no errors.\n";
     }
-
+    
     ofstream lstFile(fileBaseName + ".lst");
     for (auto& row : listing) {
         lstFile << row.address << " " << row.machineCode << " " << row.originalLine << "\n";
     }
+    lstFile << "Symbol Table : " <<endl ; 
+    lstFile << "PC LINE : ADDRESS" << endl ; 
+    for(auto & c: symbolTable){
+        lstFile << decimalToHex(c.second.second)<< " " << c.first << "\n"; 
+
+        }
+
 
     if (errors.empty()) {
         ofstream objFile(fileBaseName + ".o", ios::binary);
