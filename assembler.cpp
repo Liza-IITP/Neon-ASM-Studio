@@ -262,7 +262,6 @@ static void pass1BuildSymbols() {
                 if (!isValidLabel(op) && !validNumber) {
                     errors.push_back({lineNum, "Invalid operand"});
                 } else if (validNumber) {
-                    // --- NEW: Bounds and Crash Check ---
                     try {
                         int val = parseNumber(op);
                         // Check 24-bit signed limits (-8388608 to 8388607)
@@ -328,7 +327,7 @@ static void pass2GenerateOutput() {
             listing.push_back(row);
             continue;
         }
-
+ 
         string opcode = instructionTable[line.instruction].first;
         int type = instructionTable[line.instruction].second;
         int value = 0;
