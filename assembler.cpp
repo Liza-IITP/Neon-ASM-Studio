@@ -389,7 +389,7 @@ static void writeOutputs(const string& fileBaseName, const string& sourcePath) {
         lstFile << row.address << " " << row.machineCode << " " << row.originalLine << "\n";
     }
     lstFile << "Symbol Table : " <<endl ; 
-    lstFile << "LINE : ADDRESS" << endl ; 
+    lstFile << "LINE : LABEL" << endl ; 
     for(auto & c: symbolTable){
         lstFile << c.second.second<< " " << c.first << "\n"; 
 
